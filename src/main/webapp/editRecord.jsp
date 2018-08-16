@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Саша
-  Date: 02.06.2018
-  Time: 16:10
+  Date: 17.07.2018
+  Time: 19:06
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<jsp:forward page="/DriverController?action=list"></jsp:forward>
+
 </body>
 </html>

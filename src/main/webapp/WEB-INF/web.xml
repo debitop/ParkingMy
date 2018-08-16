@@ -3,4 +3,36 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+
+    <servlet>
+        <servlet-name>DriverController</servlet-name>
+        <servlet-class>controller.DriverController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CarController</servlet-name>
+        <servlet-class>controller.CarController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ParkingRecordController</servlet-name>
+        <servlet-class>controller.ParkingRecordController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DriverController</servlet-name>
+        <url-pattern>/DriverController</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CarController</servlet-name>
+        <url-pattern>/CarController</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ParkingRecordController</servlet-name>
+        <url-pattern>/ParkingRecordController</url-pattern>
+    </servlet-mapping>
+
 </web-app>
