@@ -2,6 +2,7 @@ package controller;
 
 import dao.RecordDao;
 import dao.daoImpl.RecordDaoImpl;
+import model.ParkingRecord;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,32 +10,43 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static util.Actions.DELETE;
-import static util.Actions.LIST;
+import static util.Actions.*;
 
 public class ParkingRecordController extends HttpServlet {
     private static final String LIST_RECORD = "listRecord.jsp";
     private static final String EDIT_RECORD = "editRecord.jsp";
     private RecordDao recordDao;
 
-    public ParkingRecordController(){recordDao=new RecordDaoImpl();    }
+    public ParkingRecordController() {
+        recordDao = new RecordDaoImpl();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         String view = "";
-        if (action.equalsIgnoreCase(LIST.name())){
-            int carId =Integer.parseInt(req.getParameter("carId"));
+        if (action.equalsIgnoreCase(LIST.name())) {
+            int carId = Integer.parseInt(req.getParameter("carId"));
             req.setAttribute("carId", carId);
             req.setAttribute("records", recordDao.listRecordById(carId));
-            view =LIST_RECORD;
-        }
-        else if(action.equalsIgnoreCase(DELETE.name())){
+            view = LIST_RECORD;
+        } else if (action.equalsIgnoreCase(DELETE.name())) {
             int recordId = Integer.parseInt(req.getParameter("recordId"));
             int carId = Integer.parseInt(req.getParameter("carId"));
             recordDao.delRecord(recordId);
             req.setAttribute("records", recordDao.listRecordById(carId));
-            view=LIST_RECORD;
+            view = LIST_RECORD;
+        } else if (action.equalsIgnoreCase(CREATE.name())) {
+            int carId = Integer.parseInt(req.getParameter("carId"));
+            req.setAttribute("carId", carId);
+            view = EDIT_RECORD;
+        } else if (action.equalsIgnoreCase(EDIT.name())) {
+            int recordId = Integer.parseInt(req.getParameter("recordId"));
+            int carId = Integer.parseInt(req.getParameter("carId"));
+            ParkingRecord pr = recordDao.getRecordById(recordId);
+            req.setAttribute("recordId", recordId);
+            req.setAttribute("carId", carId);
+            view = EDIT_RECORD;
         }
     }
 

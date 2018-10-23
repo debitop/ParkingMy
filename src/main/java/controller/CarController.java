@@ -2,6 +2,7 @@ package controller;
 
 import dao.CarDao;
 import dao.daoImpl.CarDaoImpl;
+import model.Car;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,8 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static util.Actions.DELETE;
-import static util.Actions.LIST;
+import static util.Actions.*;
 
 public class CarController extends HttpServlet {
     private static final String LIST_CAR = "listCar.jsp";
@@ -34,6 +34,19 @@ public class CarController extends HttpServlet {
             carDao.delCar(carId);
             req.setAttribute("cars", carDao.listCarById(ownerId));
             view=LIST_CAR;
+        }
+        else if (action.equalsIgnoreCase(CREATE.name())){
+            int ownerId = Integer.parseInt(req.getParameter("ownerId"));
+            req.setAttribute("ownerId", ownerId);
+            view = EDIT_CAR;
+        }
+        else if (action.equalsIgnoreCase(EDIT.name())){
+            int ownerId=Integer.parseInt(req.getParameter("ownerId"));
+            int carId = Integer.parseInt(req.getParameter("carId"));
+            Car car =carDao.getCarById(carId);
+            req.setAttribute("car", car);
+            req.setAttribute("ownerId", ownerId);
+            view=EDIT_CAR;
         }
         req.getRequestDispatcher(view).forward(req,resp);
     }

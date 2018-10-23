@@ -12,12 +12,11 @@
 </head>
 <body>
 
-<form method="post" action="/DriverController">
+<form method="POST" action="/DriverController">
     id: <input name="ownerId" type="text" readonly value="${driver.ownerId}"><br>
     name: <input name="username" type="text" value="${driver.username}"><br>
     <input type="submit" value="OK">
 
 </form>
-
 </body>
 </html>

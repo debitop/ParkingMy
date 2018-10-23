@@ -1,5 +1,6 @@
 package model;
 
+// TODO: 30.09.2018  message
 public class Car {
     private int carId;
     private String carname;
@@ -29,3 +30,4 @@ public class Car {
         this.ownerId = ownerId;
     }
 }
+

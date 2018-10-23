@@ -25,8 +25,8 @@
         <tr>
             <td><c:out value="${temp.ownerId}"/></td>
             <td><c:out value="${temp.username}"/></td>
-            <td><a href="/DriverController?action=delete&driverId=${temp.ownerId}">Delete</a> </td>
-            <td><a href="/DriverController?action=edit&driverId=${temp.ownerId}">Edit</a> </td>
+            <td><a href="/DriverController?action=delete&ownerId=${temp.ownerId}">Delete</a> </td>
+            <td><a href="/DriverController?action=edit&ownerId=${temp.ownerId}">Edit</a> </td>
             <td><a href="/CarController?action=list&ownerId=${temp.ownerId}">List Cars</a> </td>
         </tr>
     </c:forEach>
