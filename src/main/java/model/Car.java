@@ -22,9 +22,7 @@ public class Car {
         this.carname = carname;
     }
 
-    public int getOwnerId() {
-        return ownerId;
-    }
+    public int getOwnerId() {        return ownerId;    }
 
     public void setOwnerId(int ownerId) {
         this.ownerId = ownerId;

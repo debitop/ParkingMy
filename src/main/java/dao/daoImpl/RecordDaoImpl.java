@@ -2,8 +2,6 @@ package dao.daoImpl;
 
 import dao.RecordDao;
 import model.ParkingRecord;
-import service.RecordService;
-import service.RecordServiceImpl.RecordServiceImpl;
 import util.DbUtil;
 
 import java.sql.Connection;
@@ -14,11 +12,11 @@ import java.util.List;
 
 public class RecordDaoImpl implements RecordDao {
     private Connection connection;
-    RecordService serv;
+ //   RecordService serv;
 
     public RecordDaoImpl() {
         connection = DbUtil.getConnection();
-        serv = new RecordServiceImpl();
+  //      serv = new RecordServiceImpl();
     }
 
     @Override

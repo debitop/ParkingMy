@@ -64,7 +64,7 @@ public class CarDaoImpl implements CarDao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Car car = new Car();
-                car.setCarId(rs.getInt("ownerId"));
+                car.setCarId(rs.getInt("carId"));
                 car.setOwnerId(ownerId);
                 car.setCarname(rs.getString("carname"));
                 list.add(car);
